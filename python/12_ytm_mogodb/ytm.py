@@ -1,6 +1,5 @@
 # mongodb+srv://abhishekritu810219:<password>@cluster0.dfb1opk.mongodb.net/
 
-
 from ast import Name
 from audioop import add
 from math import e
