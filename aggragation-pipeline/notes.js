@@ -32,7 +32,6 @@
             averageAge: {
                 $avg: "$age"
             }
-
         }
     }
 ]
@@ -54,18 +53,18 @@
     {
         $group: {
             _id: '$favoriteFruit',
-            count: {
+            fav_fruit: {
                 $sum: 1
             }
-        },
-    },
-    {
-        $sort: {
-            cout: 1
         }
     },
     {
-        $limit: 2
+        $sort: {
+            fav_fruit: -1
+        }
+    },
+    {
+        $limit: 3
     }
 ]
 
@@ -77,7 +76,7 @@
         $group: {
             _id: '$gender',
             count: {
-                $sum: 1
+                $sum: 1       // sum of all the
             }
         },
     },
@@ -176,7 +175,7 @@
         },
     },
     {
-        $count: 'userWithEnimTag'
+        $count: a
     }
 ]
 
@@ -192,7 +191,7 @@
             age: 20,
         },
     },
-    {   
+    {
         $project: {         // project is used to show only the required fields
             name: 1,
             age: 1,
@@ -290,7 +289,7 @@
 ]
 
 
-//   lookup
+//   lookup is used to join two collections
 
 [
     {

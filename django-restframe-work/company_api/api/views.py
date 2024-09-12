@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Company, Employee
-from .serializers import CompanySerializer, EmployeeSerializer
+from .models import Company, Employee , Staff, internStudent
+from .serializers import CompanySerializer, EmployeeSerializer , StaffSerializer, internStudentSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
@@ -11,8 +11,7 @@ from rest_framework import status
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
-    
-    # http://127.0.0.1:8000/api/v1/companies/4/employees/
+    # http://127.0.0.1:8000/api/v1/companies/4/employees/     
     @action(detail=True, methods=['get'])
     def employees(self, request, pk=None):
         try:
@@ -28,8 +27,20 @@ class CompanyViewSet(viewsets.ModelViewSet):
             # Log the exception (e.g., using Django's logging framework)
             return Response({'message': 'An error occurred'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
-
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+
+class StaffViewSet(viewsets.ModelViewSet):
+    queryset = Staff.objects.all()
+    serializer_class = StaffSerializer
+    
+    
+
+
+class internStudentViewSet(viewsets.ModelViewSet):
+    queryset = internStudent.objects.all()
+    serializer_class = internStudentSerializer
+    
+    

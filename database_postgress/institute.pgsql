@@ -1,7 +1,5 @@
 
 -------------------- MANY TO MANY RELATIONSHIP -------------------- 
-
-
 CREATE TABLE students (
     s_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
@@ -49,7 +47,7 @@ select * from courses;
 select * from  enrollment;
 	
 -- 	joins -- INNER JOIN
-
+s
 SELECT s.name AS student_name,
        c.name AS course_name,
        c.fee AS fee,
@@ -63,6 +61,5 @@ select s.name , c.name ,c.fee,e.enrollment_date FROM
 enrollment e 
 JOIN students s ON e.s_id = s.s_id
 join courses c ON c.c_id = e. c_id;
-
 
 	

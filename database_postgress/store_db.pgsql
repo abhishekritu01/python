@@ -1,9 +1,10 @@
 
 CREATE TABLE customers (  
-          cust_id SERIAL PRIMARY KEY, 
+          cust_id SERIAL PRIMARY KEY,   -- serial is used to auto increment the value
           cust_name VARCHAR(100) NOT NULL 
-
 );
+
+
 
 CREATE TABLE orders ( 
             ord_id SERIAL PRIMARY KEY, 
@@ -12,12 +13,13 @@ CREATE TABLE orders (
             cust_id INTEGER NOT NULL, 
             FOREIGN KEY (cust_id) REFERENCES 
             customers (cust_id) 
-
 );
 
 
 select * from orders;
 select * from customers;
+
+
 
 drop table customers;
 drop table orders;
@@ -44,7 +46,7 @@ select * from customers inner join orders on customers.cust_id = orders.cust_id;
 
 select * from customers c inner join orders o ON c.cust_id =o.cust_id;
 
--- using group by
+-- using group by    - use for aggregate function
 select c.cust_name ,count(o.ord_id) from customers c inner join orders o ON c.cust_id =o.cust_id
 group by cust_name;
 

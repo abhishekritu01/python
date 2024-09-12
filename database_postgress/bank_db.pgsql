@@ -26,7 +26,7 @@ VALUES
 
 
 -- for delete table
-drop table employees;
+drop table employees; 
 
 -- for select data
 select * from employees
@@ -56,15 +56,18 @@ select * from employees where dept ='IT' and salary > 55000;
 -- in and not in
 select * from employees where dept IN ('IT','Finance','HR','Marketing');
 select * from employees where dept Not IN ('IT','Finance','HR');
+
 -- Between-----
 select * from employees where salary between 40000 and 50000;
+select * from employees where salary between 40000 and 50000 and dept='HR';
 
 
 
 -- distinct-
-select dept from employees;         -- to get all value from column
+select dept from employees;         -- to get unique value all value from column
 -- to get unique value 
 select distinct  dept from employees;     -- to unique dept value from column
+
 
 
 
@@ -76,7 +79,7 @@ select distinct fname,salary,email from employees;
 
 
 -- Order by - assending 
-select * from employees ORDER BY fname;
+select * from employees ORDER BY fname;       -- order by fname
 select * from employees order by salary;
 select * from employees order by dept;
 
@@ -226,10 +229,24 @@ priya | 45000 | medium
 select fname,salary, case when salary >=50000 THEN 'High'
 Else 'Low' END as salary_category from employees;
 
+SELECT 
+    fname,
+    salary,
+    CASE 
+        WHEN salary >= 5000 THEN 'HIGH'
+        ELSE 'LOW' 
+    END AS salary_range,
+    salary * 2 AS double_salary,
+	salary * 3 as triple_salary
+FROM employees;
+
 
 select fname,salary,
 case salary > 0  then round(salary*10)
 END as bonus from employees;
+
+
+
 
 
 SELECT fname, salary,
@@ -237,7 +254,7 @@ CASE
     WHEN salary > 55000 THEN 'HIGH'
     WHEN salary BETWEEN 45000 AND 50000 THEN 'MID'
     ELSE 'LOW'
-END AS salary_category 
+END AS salary_category
 FROM employees;
 
 
@@ -294,6 +311,7 @@ BEGIN
     WHERE emp_id = p_employee_id;
 END;
 $$;
+
 
 
 -- call procedure
@@ -379,7 +397,7 @@ select * from dept_max_sal_emp1('IT');
 
 SELECT SUM(salary) FROM employees;
 
-SELECT fname, salary, SUM(salary) OVER() FROM employees;
+SELECT fname, salary, SUM(salary) OVER() FROM employees;     -- over() clause is used to get the sum of salary of all employee
 
 SELECT fname, salary, SUM(salary) OVER(ORDER BY salary) FROM employees;
 
@@ -491,4 +509,16 @@ CREATE TRIGGER before_update_salary
 BEFORE UPDATE ON employees
 FOR EACH ROW
 EXECUTE FUNCTION check_salary();
+
+
+
+
+
+
+
+
+
+
+
+
 

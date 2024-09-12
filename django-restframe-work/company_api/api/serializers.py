@@ -4,7 +4,7 @@
 from dataclasses import fields
 from rest_framework import serializers
 
-from .models import Company , Employee
+from .models import Company , Employee , Staff, internStudent
 
 
 class CompanySerializer(serializers.HyperlinkedModelSerializer):   
@@ -27,3 +27,21 @@ class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
         # extra_kwargs = {
         #     'url': {'view_name': 'employee-detail', 'lookup_field': 'employee_id'}
         # }        
+        
+        
+
+class StaffSerializer(serializers.HyperlinkedModelSerializer):
+    staff_id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = Staff
+        fields = '__all__'
+      
+        
+        
+        
+class internStudentSerializer(serializers.HyperlinkedModelSerializer):
+    intern_id = serializers.IntegerField(read_only=True)
+    class Meta:
+        model = internStudent
+        fields = '__all__'
+      

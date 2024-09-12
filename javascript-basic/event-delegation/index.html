@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #category {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #category li {
+        padding: 10px;
+        border: 1px solid black;
+        margin: 5px;
+        cursor: pointer;
+      }
+
+      #category li:hover {
+        background-color: lightblue;
+      }
+
+      #category li.active {
+        background-color: lightgreen;
+      }
+
+      #form {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      #form input {
+        margin: 5px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- 1st example -->
+    <!-- <div>
+      <ul id="category">
+        <li id="laptops">laptops</li>
+        <li id="cameras">cameras</li>
+        <li id="shoes">shoes</li>
+      </ul>
+    </div> -->
+
+   <!-- --------------- -->
+   <div id="form">
+    <input type="text" id="name" data-uppercase placeholder="name">
+    <input type="text" id="pan" placeholder="pan">
+    <input type="text" id="mobile" data-uppercase placeholder="mobile">
+  </div>
+
+
+
+    <script src="./index.js"></script>
+  </body>
+</html>

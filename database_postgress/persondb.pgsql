@@ -19,7 +19,7 @@ VALUES (102, 'rajesh', 'patna'),
 	
 	
 -- get data 
-select *from person;
+select * from person;
 
 select name from person;
 
@@ -31,6 +31,14 @@ select name,city from person;
 update person set city = 'usa' where id = 104;
 -- delete data
 delete from person where id = 104;
+
+update person set city='sitamarhi' where id=102;
+
+update person set name ='abhishek' where id =102;
+
+UPDATE person 
+SET name = 'rajesh', city = 'patna' 
+WHERE id = 102;
 
 
 -- change column name

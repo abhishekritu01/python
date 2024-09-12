@@ -1,0 +1,13 @@
+
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000  # Run the Django server
+    volumes:
+      - .:/api  # Mount the current directory to /code in the container
+    ports:
+      - "8000:8000"  # Expose the Django server on port 8000  
+      
+

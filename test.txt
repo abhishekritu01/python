@@ -1,0 +1,11 @@
+
+// schema - user  books
+
+
+// api 
+1. get api for user who have recive the book
+2. update operation - update the id of book
+3. what books are avilable
+4. on the basis of id we can get book
+5 . on the basis of id we can get user/id
+6 . on the basis of id we can delete the user and book also

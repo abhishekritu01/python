@@ -50,7 +50,7 @@ VALUES
     ('Laptop', 55000.00),
     ('Mouse', 500),
     ('Keyboard', 800.00),
-     ('Cable', 250.00)
+    ('Cable', 250.00)
 ;
 
 INSERT INTO order_items (ord_id, p_id, quantity)
@@ -119,6 +119,7 @@ JOIN products p ON oi.p_id = p.p_id
 JOIN orders o ON o.ord_id = oi.ord_id
 JOIN customers c ON o.cust_id = c.cust_id;
 
+
 select * from billing_info ;
 
 DROP VIEW billing_info;
@@ -144,8 +145,8 @@ HAVING SUM(total_price) > 500 ORDER BY SUM(total_price);
 SELECT COALESCE(p_name, 'Total'),
 p_name, SUM(total_price) FROM 
 billing_info GROUP BY
-ROLLUP(p_name) 
-ORDER BY SUM(total_price);
+ROLLUP(p_name)         -- rollup is used to get the total of all the columns
+ORDER BY SUM(total_price);       
 
 
 ======================================
